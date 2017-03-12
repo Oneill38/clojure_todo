@@ -19,8 +19,13 @@
       :summary      "Get all to_dos"
       (ok (db/get-to_dos)))
 
-    (GET "/power" []
-      :return      Long
-      :header-params [x :- Long, y :- Long]
-      :summary     "x^y with header-parameters"
-      (ok (long (Math/pow x y))))))
+    (POST "/to_do" request
+      :return Long
+      :body-params [description :- String]
+      :summary "Add new To Do"
+      (ok (db/create-to_do {:description description
+                            :completed false})))
+
+
+
+      ))

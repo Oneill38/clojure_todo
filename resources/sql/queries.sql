@@ -1,8 +1,8 @@
--- :name create-to_do! :! :n
+-- :name create-to_do :! :n
 -- :doc creates a new user record
 INSERT INTO to_dos
-(id, description, completed)
-VALUES (:id, :description, :completed)
+(description, completed)
+VALUES (:description, :completed)
 
 -- :name update-to_do! :! :n
 -- :doc update an existing user record
@@ -15,7 +15,7 @@ WHERE id = :id
 SELECT * FROM to_do
 WHERE id = :id
 
--- :name delete-to_do! :! :n
+-- :name delete-to_do :! :n
 -- :doc delete a user given the id
 DELETE FROM to_dos
 WHERE id = :id

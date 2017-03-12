@@ -45,15 +45,42 @@
 
 (defn to_do-list [to_dos]
   [:ul
-    (for [to_do to_dos]
+    (for [[idx to_do] (map-indexed vector to_dos)]
+      ^{:key idx}
       [to_do-item to_do])]
 )
 
+(defn add-to_do [form]
+  (POST "/api/to_do"
+    {:params @form
+     :handler
+     #(do
+        (swap! to_dos conj @form)
+        (reset! form {}))}))
+
+(defn to_do-form []
+  (let [form (r/atom {})]
+    (fn []
+      [:div.form-group
+        [:label "Description"]
+        [:input.form-control
+          {:type :text
+           :value (:description @form)
+           :on-change
+           #(swap! form
+                   assoc
+                   :description (-> % .-target .-value))
+           }]
+           [:button.btn.btn-primary
+            {:on-click #(add-to_do form)}
+            "Add To Do"]])
+  ))
 
 (defn home-page []
   [:div.container
    [:h1 "Welcome to To-Do"]
    [:p "Get Started and add some To-Dos"]
+   [to_do-form]
    [to_do-list @to_dos]
    ]
    )
