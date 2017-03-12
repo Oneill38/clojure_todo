@@ -35,12 +35,28 @@
     [:div.col-md-12
      [:img {:src (str js/context "/img/warning_clojure.png")}]]]])
 
+(def to_dos (r/atom []))
+
+(GET "/api/to_dos"
+  {:handler #(reset! to_dos %)})
+
+(defn to_do-item [{:keys [description completed]}]
+  [:li description " completed: " completed])
+
+(defn to_do-list [to_dos]
+  [:ul
+    (for [to_do to_dos]
+      [to_do-item to_do])]
+)
+
+
 (defn home-page []
   [:div.container
-   (when-let [docs (session/get :docs)]
-     [:div.row>div.col-sm-12
-      [:div {:dangerouslySetInnerHTML
-             {:__html (md->html docs)}}]])])
+   [:h1 "Welcome to To-Do"]
+   [:p "Get Started and add some To-Dos"]
+   [to_do-list @to_dos]
+   ]
+   )
 
 (def pages
   {:home #'home-page
