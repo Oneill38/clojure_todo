@@ -15,7 +15,7 @@
     :tags ["to_dos"]
 
     (GET "/to_dos" []
-      :return       [{:description String :completed Boolean}]
+      :return       [{:id Integer :description String :completed Boolean}]
       :summary      "Get all to_dos"
       (ok (db/get-to_dos)))
 
@@ -26,6 +26,13 @@
       (ok (db/create-to_do {:description description
                             :completed false})))
 
+    (POST "/to_do/:id" request
+      :return Long
+      :path-params [id :- Integer]
+      :summary     "Update to-do"
+      (ok (db/update-to_do{:id id
+                           :completed true}))
+      )
 
 
       ))

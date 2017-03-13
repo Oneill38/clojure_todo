@@ -4,7 +4,7 @@ INSERT INTO to_dos
 (description, completed)
 VALUES (:description, :completed)
 
--- :name update-to_do! :! :n
+-- :name update-to_do :! :n
 -- :doc update an existing user record
 UPDATE to_dos
 SET description = :description, completed = :completed

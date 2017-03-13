@@ -5,6 +5,7 @@
 pom.xml
 *.jar
 *.class
+figwheel_server.log
 /.lein-*
 profiles.clj
 /.env

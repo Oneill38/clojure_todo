@@ -40,8 +40,15 @@
 (GET "/api/to_dos"
   {:handler #(reset! to_dos %)})
 
-(defn to_do-item [{:keys [description completed]}]
-  [:li description " completed: " completed])
+(defn update-to_do [id]
+  (POST "/api/to_do/:id"
+    {:params id }))
+
+(defn to_do-item [{:keys [description completed id]}]
+  [:li description " completed: " 
+    [:input 
+      {:type "checkbox" 
+       :on-change #(update-to_do id)}]])
 
 (defn to_do-list [to_dos]
   [:ul
