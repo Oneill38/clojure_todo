@@ -27,7 +27,7 @@
         [:a.navbar-brand {:href "#/"} "todo"]
         [:ul.nav.navbar-nav
          [nav-link "#/" "Home" :home collapsed?]
-         [nav-link "#/about" "About" :about collapsed?]]]])))
+         [nav-link "/about" "About" :about collapsed?]]]])))
 
 (defn about-page []
   [:div.container

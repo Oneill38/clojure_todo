@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Welcome to todo</title>
+      <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" >
+      <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css" >
+      <link rel="stylesheet" href="/css/screen.css" >
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <div id="app">
+      <div class="container-fluid">
+        <div class="card-deck">
+          <div class="card-block">
+            <h4>About To-Do</h4>
+            <p>Welcome to a super simple to-do application</p>
+            <p>You can keep track of your to-do items on the <a href="/">Home Page</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- scripts and styles -->
+
+
+    <script type="text/javascript">
+        var context = "{{servlet-context}}";
+        var csrfToken = "{{csrf-token}}";
+    </script>
+  </body>
+</html>
+
+
+
+
