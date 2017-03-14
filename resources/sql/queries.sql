@@ -12,7 +12,7 @@ WHERE id = :id
 
 -- :name get-to_do :? :1
 -- :doc retrieve a user given the id.
-SELECT * FROM to_do
+SELECT * FROM to_dos
 WHERE id = :id
 
 -- :name delete-to_do :! :n
