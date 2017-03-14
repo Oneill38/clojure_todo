@@ -6,7 +6,7 @@
             [goog.history.EventType :as HistoryEventType]
             [markdown.core :refer [md->html]]
             [todo.ajax :refer [load-interceptors!]]
-            [ajax.core :refer [GET POST]])
+            [ajax.core :refer [GET POST PUT]])
   (:import goog.History))
 
 (defn nav-link [uri title page collapsed?]
@@ -41,21 +41,23 @@
   {:handler #(reset! to_dos %)})
 
 (defn update-to_do [id]
-  (POST "/api/to_do/:id"
-    {:params id }))
+  (PUT "/api/to_do/:id"
+    {:params {:id id} }))
 
 (defn to_do-item [{:keys [description completed id]}]
-  [:li description " completed: " 
+  [:li description " " 
     [:input 
       {:type "checkbox" 
-       :on-change #(update-to_do id)}]])
+       :checked completed
+       :value completed
+       :on-change #(update-to_do id)
+       }]])
 
 (defn to_do-list [to_dos]
   [:ul
     (for [[idx to_do] (map-indexed vector to_dos)]
       ^{:key idx}
-      [to_do-item to_do])]
-)
+      [to_do-item to_do])])
 
 (defn add-to_do [form]
   (POST "/api/to_do"

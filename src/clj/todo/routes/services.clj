@@ -26,9 +26,9 @@
       (ok (db/create-to_do {:description description
                             :completed false})))
 
-    (POST "/to_do/:id" request
+    (PUT "/to_do/:id" []
       :return Long
-      :path-params [id :- Integer]
+      :body-params [id :- s/Int]
       :summary     "Update to-do"
       (ok (db/update-to_do{:id id
                            :completed true}))

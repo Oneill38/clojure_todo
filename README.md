@@ -28,6 +28,7 @@ To start a web server for the application, run:
 
 ## Next Steps
 
-* Complete further testing
-* Build out rest of CRUD functionality
+* Add in Clojurescript testing
+* Allow users to un-check a to-do item, to say it is no longer completed
+* Add delete functionality
 

@@ -7,7 +7,7 @@ VALUES (:description, :completed)
 -- :name update-to_do :! :n
 -- :doc update an existing user record
 UPDATE to_dos
-SET description = :description, completed = :completed
+SET completed = :completed
 WHERE id = :id
 
 -- :name get-to_do :? :1
