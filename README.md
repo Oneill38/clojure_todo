@@ -4,7 +4,7 @@ Disclaimer: This is my first time using Clojure/everything included in this stac
 
 This to-do application was build using the Luminus Web Framework. From poking around a bit, it seems to be similar in ways to Rails (i.e. convention over configuration). It comes complete with a small testing suite, and the ability to add a to-do, see all to-dos, and update a to-do as "completed".
 
-As compared to other languages/frameworks, I definitely thinks there's less literature and examples available. That's something I'd definintely like to spend some time working on, should I end up in this role!
+As compared to other languages/frameworks, I definitely thinks there's less literature and examples available.
 
 ## Prerequisites
 
